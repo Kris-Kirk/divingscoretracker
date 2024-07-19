@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diving Score Tracker</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to the Diving Score Tracker</h1>
+        <p>Track and manage diving scores with ease. Choose an option below to get started:</p>
+        <a href="/setup" class="button">Start Tracking Scores</a><br>
+    </div>
+    <script>
+        function confirmClear() {
+            return confirm("Are you sure you want to clear all scores?");
+        }
+    </script>
+</body>
+</html>

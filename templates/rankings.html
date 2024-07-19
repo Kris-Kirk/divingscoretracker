@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Diver Rankings</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Diver Rankings</h1>
+        <ol>
+            {% for diver, score in sorted_divers %}
+            <li>{{ diver }}: {{ score }}</li>
+            {% endfor %}
+        </ol>
+        <a class="button" href="/submit_scores">Back</a>
+        <a class="button" href="/clear">Clear</a>
+    </div>
+</body>
+</html>

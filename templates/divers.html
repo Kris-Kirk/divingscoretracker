@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enter Divers</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Enter Divers</h1>
+        <form method="post" id="diverForm">
+            <label for="diver_name">Diver Name:</label>
+            <input type="text" id="diver_name" name="diver_name" required>
+            <input type="submit" value="Add Diver">
+        </form>
+        <h2>Participants:</h2>
+        <ul>
+            {% for diver in divers %}
+            <li>{{ diver }}</li>
+            {% endfor %}
+        </ul>
+        <a class="button" href="/judges">Next</a>
+        <a class="button" href="/setup">Back</a>
+        <a class="button" href="/clear">Clear</a>
+        <a class="button" href="/undo">Undo</a>
+        <a class="button" href="/redo">Redo</a>
+
+        <script>
+            document.getElementById('diverForm').addEventListener('submit', function(event) {
+                document.getElementById('diver_name').focus();
+            });
+
+            // Initial focus when the page loads
+            document.getElementById('diver_name').focus();
+        </script>
+    </div>
+</body>
+</html>
+

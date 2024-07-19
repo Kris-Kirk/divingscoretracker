@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Submit Scores</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Submit Scores</h1>
+        <h2>Round: {{ current_round }}</h2>
+        <form method="post" id="scoreForm">
+            <label for="diver">Select Diver:</label>
+            <select id="diver" name="diver">
+                {% for diver in divers %}
+                <option value="{{ diver }}" {% if diver == last_selected_diver %}selected{% elif loop.index0 == current_diver_index %}selected{% endif %}>{{ diver }}</option>
+                {% endfor %}
+            </select><br>
+            <label for="dd">Degree of Difficulty (DD):</label>
+            <input type="number" step="0.1" id="dd" name="dd" required><br>
+            {% for i in range(num_judges) %}
+            <label for="judge{{ i+1 }}">Judge {{ i+1 }} Score:</label>
+            <input type="number" step="0.1" id="judge{{ i+1 }}" name="judge{{ i+1 }}" required><br>
+            {% endfor %}
+            <input type="submit" value="Submit Score">
+        </form>
+        <h2>Current Scores:</h2>
+        <ul>
+            {% for diver, score in scores.items() %}
+            <li>{{ diver }}: {{ score }}</li>
+            {% endfor %}
+        </ul>
+        <a class="button" href="/rankings">Create Rankings</a>
+        <a class="button" href="/undo">Undo</a>
+        <a class="button" href="/redo">Redo</a>
+        <a class="button" href="/judges">Back</a>
+        <a class="button" href="/clear">Clear</a>
+
+        <script>
+            // Initial focus on DD when the page loads
+            document.getElementById('dd').focus();
+        </script>
+    </div>
+</body>
+</html>
+

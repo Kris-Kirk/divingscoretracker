@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Setup</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Setup</h1>
+        <form method="post">
+            <label for="date">Date:</label>
+            <input type="date" id="date" name="date" required><br>
+            <label for="event_number">Event Number:</label>
+            <input type="text" id="event_number" name="event_number" required><br>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
