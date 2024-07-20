@@ -110,3 +110,41 @@ Diver: Josh
 Diver: Kris
 Diver: Josh
 Diver: Taya]
+Event Date: 2024-07-20, Event Number: 1
+Diver: Kris
+Diver: Karissa
+Diver: Ethan
+Diver: Kris, DD: 1.1, Scores: [5.0, 5.0, 5.0], Total: 16.5
+Diver: Karissa, DD: 1.2, Scores: [4.0, 4.0, 4.0], Total: 14.399999999999999
+Diver: Ethan, DD: 1.3, Scores: [6.0, 6.0, 6.0], Total: 23.400000000000002
+Diver: Kris, DD: 1.8, Scores: [6.0, 6.0, 6.0], Total: 32.4
+Diver: Karissa, DD: 1.7, Scores: [8.0, 8.0, 8.0], Total: 40.8
+Diver: Ethan, DD: 1.7, Scores: [6.0, 6.0, 6.0], Total: 30.599999999999998
+Event Date: 2024-07-20, Event Number: 1
+Diver: Diver 1
+Diver: Diver 2
+Diver: Diver 1, DD: 1.2, Scores: [5.0, 5.0, 5.0], Total: 18.0
+Diver: Diver 2, DD: 1.6, Scores: [5.0, 5.0, 5.0], Total: 24.0
+Diver: Diver 1, DD: 1.3, Scores: [5.0, 5.0, 5.0], Total: 19.5
+Diver: Diver 2, DD: 1.7, Scores: [7.0, 7.0, 7.0], Total: 35.699999999999996
+Diver: Diver 1, DD: 1.5, Scores: [5.0, 5.0, 5.0], Total: 22.5
+Diver: Diver 2, DD: 1.9, Scores: [9.0, 9.0, 9.0], Total: 51.3
+Event Date: 2024-07-20, Event Number: 4
+Diver: Kris
+Diver: Mark
+Diver: Owen
+Diver: James
+Diver: Kris, DD: 1.1, Scores: [5.0, 5.0, 5.0], Total: 16.5
+Diver: Mark, DD: 1.4, Scores: [6.0, 6.0, 6.0], Total: 25.2
+Diver: Owen, DD: 1.0, Scores: [4.0, 4.0, 4.0], Total: 12.0
+Diver: James, DD: 1.7, Scores: [6.0, 6.0, 6.0], Total: 30.599999999999998
+Diver: Kris, DD: 1.4, Scores: [3.0, 3.0, 3.0], Total: 12.6
+Diver: Mark, DD: 1.7, Scores: [6.0, 6.0, 6.0], Total: 30.599999999999998
+Diver: Owen, DD: 1.8, Scores: [8.0, 8.0, 8.0], Total: 43.2
+Diver: James, DD: 1.9, Scores: [4.0, 4.0, 4.0], Total: 22.799999999999997
+Event Date: 2024-07-26, Event Number: 4
+Diver: Kris
+Diver: Matt
+Event Date: 2024-07-20, Event Number: 4
+Diver: Kris, DD: 1.1, Scores: [5.0, 5.0, 5.0], Total: 16.5
+Diver: Matt, DD: 1.4, Scores: [5.0, 5.0, 5.0], Total: 21.0

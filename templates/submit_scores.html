@@ -26,7 +26,7 @@
         <h2>Current Scores:</h2>
         <ul>
             {% for diver, score in scores.items() %}
-            <li>{{ diver }}: {{ score }}</li>
+            <li>{{ diver }}: {{ "%.2f"|format(score) }}</li>
             {% endfor %}
         </ul>
         <a class="button" href="/rankings">Create Rankings</a>
@@ -42,4 +42,3 @@
     </div>
 </body>
 </html>
-

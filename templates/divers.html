@@ -15,14 +15,14 @@
         <h2>Participants:</h2>
         <ul>
             {% for diver in divers %}
-            <li>{{ diver }}</li>
+            <li>{{ diver }}
+                <a href="{{ url_for('remove_diver', diver=diver|urlencode) }}" class="remove-button">Remove</a>
+            </li>
             {% endfor %}
         </ul>
         <a class="button" href="/judges">Next</a>
         <a class="button" href="/setup">Back</a>
         <a class="button" href="/clear">Clear</a>
-        <a class="button" href="/undo">Undo</a>
-        <a class="button" href="/redo">Redo</a>
 
         <script>
             document.getElementById('diverForm').addEventListener('submit', function(event) {
@@ -35,4 +35,3 @@
     </div>
 </body>
 </html>
-

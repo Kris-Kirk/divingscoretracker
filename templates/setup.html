@@ -3,6 +3,14 @@
 <head>
     <title>Setup</title>
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <script>
+        function setDefaultDate() {
+            const today = new Date().toISOString().split('T')[0];
+            document.getElementById('date').value = today;
+        }
+
+        window.onload = setDefaultDate;
+    </script>
 </head>
 <body>
     <div class="container">

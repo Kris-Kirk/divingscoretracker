@@ -1,5 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for, session, jsonify
 from datetime import datetime
+from flask import send_file
+from reportlab.lib.pagesizes import letter
+from reportlab.pdfgen import canvas
 
 app = Flask(__name__)
 app.secret_key = 'supersecretkey'
@@ -13,6 +16,11 @@ current_diver_index = 0
 current_round = 1
 last_selected_diver = None
 
+diver_information = {}
+
+undo_stack = []
+redo_stack = []
+
 @app.route('/')
 def index():
     return render_template('index.html')
@@ -22,7 +30,7 @@ def setup():
     if request.method == 'POST':
         event_date = request.form['date']
         event_number = request.form['event_number']
-        with open('log.txt', 'a') as f:
+        with open('{event_date}, Event Number: {event_number}.txt', 'a') as f:
             f.write(f"Event Date: {event_date}, Event Number: {event_number}\n")
         
         session['date'] = event_date
@@ -37,10 +45,30 @@ def divers_route():
         diver_name = request.form['diver_name']
         if diver_name:
             divers.append(diver_name)
+            diver_information[diver_name] = [] # TODO: Test this
             with open('log.txt', 'a') as f:
                 f.write(f"Diver: {diver_name}\n")
         return redirect(url_for('divers_route'))
     return render_template('divers.html', divers=divers)
+
+@app.route('/remove_diver/<diver>')
+def remove_diver(diver):
+    print(f"Attempting to remove diver: {diver}")
+    print(f"Current divers list: {divers}")
+    if diver in divers:
+        divers.remove(diver)
+        session['divers'] = divers
+        print(f"Diver {diver} removed. Updated divers list: {divers}")
+        scores = session.get('scores', {})
+        if diver in scores:
+            del scores[diver]
+        session['scores'] = scores
+        undo_stack.append(('remove_diver', diver))
+    else:
+        print(f"Diver {diver} not found in divers list.")
+    return redirect(url_for('divers_route'))
+
+
 
 @app.route('/judges', methods=['GET', 'POST'])
 def judges():
@@ -61,6 +89,8 @@ def submit_scores():
         
         history.append((diver, scores.get(diver, 0)))
         redo_history.clear()
+
+        full_scores = judge_scores.copy()
         
         if num_judges == 5:
             judge_scores.remove(max(judge_scores))
@@ -71,6 +101,8 @@ def submit_scores():
         
         with open('log.txt', 'a') as f:
             f.write(f"Diver: {diver}, DD: {dd}, Scores: {judge_scores}, Total: {total_score}\n")
+
+        diver_information[diver].append((dd, full_scores, total_score, scores[diver]))
         
         # Move to the next diver
         current_diver_index = (current_diver_index + 1) % len(divers)
@@ -124,5 +156,30 @@ def clear():
     last_selected_diver = None
     return redirect(url_for('setup'))
 
+@app.route('/download_log_file')
+def download_log_file():
+    event_number = session.get('event_number')
+    pdf_filename = f"Event Date: {session.get('date')}, Event Number_{event_number}_Athlete_Scores.pdf"
+    txt_filename = f"Event Date: {session.get('date')}, Event Number_{event_number}_Athlete_Scores.txt"
+    with open(txt_filename, 'w') as f:
+        f.write(f"Event Date: {session.get('date')}, Event Number: {session.get('event_number')}\n")
+        for diver, info in diver_information.items():
+            f.write(f"Diver: {diver}, Total: {cum_total:.2f}\n")
+            for dd, scores, total, cum_total in info:
+                f.write(f"DD: {dd}, Scores: {scores}, Total: {total:.2f}, Cumulative Total: {cum_total:.2f}\n")
+    
+    with open(txt_filename, 'r') as f:
+        data = f.read()
+        
+    c = canvas.Canvas(pdf_filename, pagesize=letter)
+    lines = data.splitlines()
+    y_position = 750
+    
+    for line in lines:
+        c.drawString(100, y_position, line)
+        y_position -= 20
+    c.save()
+    return send_file(pdf_filename, as_attachment=True)
+    
 if __name__ == '__main__':
     app.run(debug=True)
