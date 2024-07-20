@@ -1,0 +1,10 @@
+Event Date: 2024-07-20, Event Number: 9999
+Diver: A
+Diver: B
+Diver: C
+Diver: D
+Diver: A, DD: 5.0, Scores: [5.0, 5.0, 5.0], Total: 75.0
+Diver: B, DD: 6.0, Scores: [6.0, 6.0, 6.0], Total: 108.0
+Diver: C, DD: 7.0, Scores: [7.0, 7.0, 7.0], Total: 147.0
+Diver: D, DD: 8.0, Scores: [8.0, 8.0, 8.0], Total: 192.0
+Round: 2

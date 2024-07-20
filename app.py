@@ -20,6 +20,7 @@ diver_information = {}
 
 undo_stack = []
 redo_stack = []
+global file_name
 
 @app.route('/')
 def index():
@@ -27,11 +28,18 @@ def index():
 
 @app.route('/setup', methods=['GET', 'POST'])
 def setup():
+    global file_name
     if request.method == 'POST':
         event_date = request.form['date']
         event_number = request.form['event_number']
-        with open('{event_date}, Event Number: {event_number}.txt', 'a') as f:
+        file_name = f"{event_date}_Event_{event_number}.txt"
+        with open(file_name, 'a') as f:
             f.write(f"Event Date: {event_date}, Event Number: {event_number}\n")
+        
+        # print(f"Event Date: {event_date}, Event Number: {event_number}")
+        
+        # with open('log.txt', 'a') as f:
+        #     f.write(f"\nEvent Date: {event_date}, Event Number: {event_number}\n")
         
         session['date'] = event_date
         session['event_number'] = event_number
@@ -40,13 +48,16 @@ def setup():
 
 @app.route('/divers', methods=['GET', 'POST'])
 def divers_route():
-    global divers
+    global divers, file_name
     if request.method == 'POST':
         diver_name = request.form['diver_name']
+        event_date = session.get('date')
+        event_number = session.get('event_number')
+        
         if diver_name:
             divers.append(diver_name)
             diver_information[diver_name] = [] # TODO: Test this
-            with open('log.txt', 'a') as f:
+            with open(file_name, 'a') as f:
                 f.write(f"Diver: {diver_name}\n")
         return redirect(url_for('divers_route'))
     return render_template('divers.html', divers=divers)
@@ -80,7 +91,7 @@ def judges():
 
 @app.route('/submit_scores', methods=['GET', 'POST'])
 def submit_scores():
-    global divers, scores, history, redo_history, current_diver_index, current_round
+    global divers, scores, history, redo_history, current_diver_index, current_round, file_name
     num_judges = session.get('num_judges', 3)
     if request.method == 'POST':
         diver = request.form['diver']
@@ -99,7 +110,7 @@ def submit_scores():
         total_score = sum(judge_scores) * dd
         scores[diver] = scores.get(diver, 0) + total_score
         
-        with open('log.txt', 'a') as f:
+        with open(file_name, 'a') as f:
             f.write(f"Diver: {diver}, DD: {dd}, Scores: {judge_scores}, Total: {total_score}\n")
 
         diver_information[diver].append((dd, full_scores, total_score, scores[diver]))
@@ -108,6 +119,8 @@ def submit_scores():
         current_diver_index = (current_diver_index + 1) % len(divers)
         if current_diver_index == 0:
             current_round += 1
+            with open(file_name, 'a') as f:
+                f.write(f"Round: {current_round}\n")
         
         return redirect(url_for('submit_scores'))
     
@@ -146,14 +159,16 @@ def redo():
 
 @app.route('/clear')
 def clear():
-    global divers, scores, history, redo_history, current_diver_index, current_round, last_selected_diver
+    global divers, scores, history, redo_history, current_diver_index, current_round, last_selected_diver, diver_information
     divers = []
     scores = {}
     history = []
     redo_history = []
+    diver_information.clear()
     current_diver_index = 0
     current_round = 1
     last_selected_diver = None
+    print("Diver_information: ", diver_information)
     return redirect(url_for('setup'))
 
 @app.route('/download_log_file')
@@ -163,6 +178,7 @@ def download_log_file():
     pdf_filename = f"Event Date: {session.get('date')}, Event Number_{event_number}_Athlete_Scores.pdf"
     txt_filename = f"Event Date: {session.get('date')}, Event Number_{event_number}_Athlete_Scores.txt"
     diver_information_copy = diver_information.copy()
+    
     for diver, info in diver_information.items():
         try:
             data = info[-1][-1]
@@ -170,19 +186,20 @@ def download_log_file():
             del diver_information_copy[diver]
     
     with open(txt_filename, 'w') as f:
-        f.write(f"Event Date: {session.get('date')}, Event Number: {session.get('event_number')}\n")
+        f.write(f"{session.get('date')} Dive Meet, Event Number: {session.get('event_number')}\n")
         for diver, info in diver_information_copy.items():
-            f.write(f"{diver}, Total: {info[-1][-1]}\n")
+            f.write(f"{diver}, Total: {info[-1][-1]:.2f}\n")
             
             for dd, scores, total, cum_total in info:
-                f.write(f"DD: {dd}, Scores: {scores}, Total: {total:.2f}, Cumulative Total: {cum_total:.2f}\n")
-            round += 1  
+                f.write(f"#{round}, DD: {dd}, Scores: {scores}, Score: {total:.2f}, Total: {cum_total:.2f}\n")
+                round += 1  
         f.write("\nPlacings:\n")
         # Sort divers by total score and write to file
         sorted_divers = sorted(diver_information_copy.items(), key=lambda x: x[1][-1][-1], reverse=True)
             
         for i, (diver, info) in enumerate(sorted_divers):
-            f.write(f"{i+1}. {diver}, Total: {info[-1][-1]}\n")        
+            f.write(f"{i+1}. {diver}, Total: {info[-1][-1]:.2f}\n")
+        
             
     with open(txt_filename, 'r') as f:
         data = f.read()
