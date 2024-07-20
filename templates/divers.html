@@ -16,7 +16,7 @@
         <ul>
             {% for diver in divers %}
             <li>{{ diver }}
-                <a href="{{ url_for('remove_diver', diver=diver|urlencode) }}" class="remove-button">Remove</a>
+                <a href="{{ url_for('remove_diver', diver=diver|urlencode) }}" class="button remove-button">Remove</a>
             </li>
             {% endfor %}
         </ul>

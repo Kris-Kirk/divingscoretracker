@@ -158,16 +158,32 @@ def clear():
 
 @app.route('/download_log_file')
 def download_log_file():
+    round = 1
     event_number = session.get('event_number')
     pdf_filename = f"Event Date: {session.get('date')}, Event Number_{event_number}_Athlete_Scores.pdf"
     txt_filename = f"Event Date: {session.get('date')}, Event Number_{event_number}_Athlete_Scores.txt"
+    diver_information_copy = diver_information.copy()
+    for diver, info in diver_information.items():
+        try:
+            data = info[-1][-1]
+        except:
+            del diver_information_copy[diver]
+    
     with open(txt_filename, 'w') as f:
         f.write(f"Event Date: {session.get('date')}, Event Number: {session.get('event_number')}\n")
-        for diver, info in diver_information.items():
-            f.write(f"Diver: {diver}, Total: {cum_total:.2f}\n")
+        for diver, info in diver_information_copy.items():
+            f.write(f"{diver}, Total: {info[-1][-1]}\n")
+            
             for dd, scores, total, cum_total in info:
                 f.write(f"DD: {dd}, Scores: {scores}, Total: {total:.2f}, Cumulative Total: {cum_total:.2f}\n")
-    
+            round += 1  
+        f.write("\nPlacings:\n")
+        # Sort divers by total score and write to file
+        sorted_divers = sorted(diver_information_copy.items(), key=lambda x: x[1][-1][-1], reverse=True)
+            
+        for i, (diver, info) in enumerate(sorted_divers):
+            f.write(f"{i+1}. {diver}, Total: {info[-1][-1]}\n")        
+            
     with open(txt_filename, 'r') as f:
         data = f.read()
         

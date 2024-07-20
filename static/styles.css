@@ -47,19 +47,19 @@ input[type="submit"]:hover {
     background-color: #0056b3;
 }
 
-.button {
+.button, .remove-button {
     display: inline-block;
     color: #fff;
     background-color: #007bff;
     border: none;
-    padding: 10px 20px;
+    padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
     text-align: center;
     text-decoration: none;
 }
 
-.button:hover {
+.button:hover, .remove-button:hover {
     background-color: #0056b3;
 }
 
@@ -74,6 +74,9 @@ li {
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 ol {
