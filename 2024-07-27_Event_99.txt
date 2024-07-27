@@ -1,0 +1,22 @@
+Event Date: 2024-07-27, Event Number: 99
+Diver: Diver 1
+Diver: Diver 2
+Diver: Diver 1, DD: 1.0, Scores: [1.0, 1.0, 1.0], Total: 3.0
+Diver: Diver 2, DD: 1.0, Scores: [1.0, 1.0, 1.0], Total: 3.0
+Round: 2
+Diver: Diver 1, DD: 2.0, Scores: [2.0, 2.0, 2.0], Total: 12.0
+Diver: Diver 2, DD: 2.0, Scores: [2.0, 2.0, 2.0], Total: 12.0
+Round: 3
+Diver: Diver 1, DD: 3.0, Scores: [3.0, 3.0, 3.0], Total: 27.0
+Diver: Diver 2, DD: 4.0, Scores: [4.0, 4.0, 4.0], Total: 48.0
+Round: 4
+Event Date: 2024-07-27, Event Number: 99
+Diver: Pop
+Diver: Dad
+Diver: Uncle
+Diver: Pop, DD: 1.4, Scores: [5.0, 5.0, 5.0], Total: 21.0
+Diver: Dad, DD: 1.0, Scores: [1.0, 1.0, 1.0], Total: 3.0
+Diver: Uncle, DD: 1.6, Scores: [6.0, 6.0, 6.0], Total: 28.8
+Round: 2
+Diver: Pop, DD: 6.0, Scores: [6.0, 6.0, 6.0], Total: 108.0
+Diver: Dad, DD: 6.0, Scores: [6.0, 6.0, 6.0], Total: 108.0

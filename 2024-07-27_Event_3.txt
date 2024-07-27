@@ -7,3 +7,20 @@ Round: 2
 Diver: jane, DD: 1.2, Scores: [5.5, 6.6, 6.0], Total: 21.720000000000002
 Diver: taya, DD: 1.0, Scores: [6.5, 6.0, 6.5], Total: 19.0
 Round: 3
+Event Date: 2024-07-27, Event Number: 3
+Diver: Lol
+Diver: Nob
+Diver: Lol, DD: 4.0, Scores: [4.0, 4.0, 4.0], Total: 48.0
+Diver: Nob, DD: 4.0, Scores: [4.0, 4.0, 4.0], Total: 48.0
+Round: 2
+Diver: Lol, DD: 4.0, Scores: [4.0, 4.0, 4.0], Total: 48.0
+Diver: Nob, DD: 4.0, Scores: [4.0, 4.0, 4.0], Total: 48.0
+Round: 3
+Event Date: 2024-07-27, Event Number: 3
+Diver: Mary
+Diver: Bary
+Diver: Gary
+Diver: Mary, DD: 1.3, Scores: [4.0, 4.0, 4.0], Total: 15.600000000000001
+Diver: Bary, DD: 5.0, Scores: [5.0, 5.0, 5.0], Total: 75.0
+Diver: Gary, DD: 1.0, Scores: [1.0, 1.0, 1.0], Total: 3.0
+Round: 2

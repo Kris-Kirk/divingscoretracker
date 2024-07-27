@@ -15,6 +15,7 @@ redo_history = []
 current_diver_index = 0
 current_round = 1
 last_selected_diver = None
+global diver_information
 
 diver_information = {}
 
@@ -243,6 +244,7 @@ def download_log_file():
             # Displays properly ties for first place
             if current_score == None:
                 current_score = info[-1][-1]
+                current_place = next_place
             # Records ties for second place and beyond
             if info[-1][-1] != current_score:
                 current_score = info[-1][-1]
@@ -267,6 +269,50 @@ def download_log_file():
         y_position -= line_height
     c.save()
     return send_file(pdf_filename, as_attachment=True)
+
+@app.route('/validate', methods=['GET', 'POST'])
+def validate_scores():
+    global diver_information, scores  # Declare diver_information as global
+    if request.method == 'POST':
+        # Process the form data
+        new_diver_information = {}
+        new_scores = {}
+        for diver in diver_information.keys():
+            new_diver_information[diver] = []
+            round_num = 0
+            cum_total = 0
+            while True:
+                dd_key = f'dd_{diver}_{round_num}'
+                if dd_key not in request.form:
+                    break
+                dd = float(request.form[dd_key])
+                scores = []
+                i = 0
+                while True:
+                    score_key = f'score_{diver}_{round_num}_{i}'
+                    if score_key not in request.form:
+                        break
+                    score = float(request.form[score_key])
+                    scores.append(score)
+                    i += 1
+                # Calculate total and cumulative total
+                if len(scores) == 3:
+                    total = dd * sum(sorted(scores))  # Example scoring rule
+                else:
+                    total = dd * sum(sorted(scores)[1:-1])  # Example scoring rule
+                cum_total += total
+                new_diver_information[diver].append((dd, scores, total, cum_total))
+                round_num += 1
+            new_scores[diver] = cum_total
+
+        # Update the global diver_information
+        diver_information = new_diver_information
+        scores = new_scores
+
+        return redirect(url_for('validate_scores'))
+
+    return render_template('validation.html', diver_information=diver_information)
+
     
 if __name__ == '__main__':
     app.run(debug=True)

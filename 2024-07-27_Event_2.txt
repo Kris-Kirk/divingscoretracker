@@ -43,3 +43,16 @@ Diver: Lily, DD: 1.0, Scores: [7.5, 7.5, 7.5], Total: 22.5
 Event Date: 2024-07-27, Event Number: 2
 Diver: Kris
 Diver: Logan
+Event Date: 2024-07-27, Event Number: 2
+Event Date: 2024-07-27, Event Number: 2
+Diver: Logan
+Diver: Mark
+Diver: Ethan
+Diver: Logan, DD: 1.0, Scores: [1.0, 1.0, 1.0], Total: 3.0
+Diver: Mark, DD: 2.0, Scores: [2.0, 2.0, 2.0], Total: 12.0
+Diver: Ethan, DD: 3.0, Scores: [3.0, 3.0, 3.0], Total: 27.0
+Round: 2
+Diver: Logan, DD: 4.0, Scores: [4.0, 4.0, 4.0], Total: 48.0
+Diver: Mark, DD: 5.0, Scores: [5.0, 5.0, 5.0], Total: 75.0
+Diver: Ethan, DD: 6.0, Scores: [6.0, 6.0, 6.0], Total: 108.0
+Round: 3

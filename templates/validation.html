@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Validate Scores</title>
+    <style>
+        .input-group {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .input-group label {
+            margin-right: 10px;
+        }
+        .input-group input {
+            width: 50px;
+            margin-right: 10px;
+        }
+        .input-group div {
+            margin-right: 20px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .score-entry {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .score-entry label, 
+        .score-entry input {
+            margin-right: 10px;
+            margin-left: 5px;
+            width: 60px; /* Adjust width as necessary */
+        }
+
+        .score-entry input[type="number"] {
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button.button {
+            margin-top: 20px;
+        }
+        </style>
+        
+        
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form method="POST">
+            {% for diver, info in diver_information.items() %}
+                <h2>{{ diver }}</h2>
+                {% for round_num in range(info|length) %}
+                    {% set round_info = info[round_num] %}
+                    <div class="input-group">
+                        <div>
+                            <label for="dd_{{ diver }}_{{ round_num }}">DD:</label>
+                            <input type="text" name="dd_{{ diver }}_{{ round_num }}" value="{{ round_info[0] }}">
+                        </div>
+                        {% for score_index in range(round_info[1]|length) %}
+                            <div>
+                                <label for="score_{{ diver }}_{{ round_num }}_{{ score_index }}">Judge {{ score_index + 1 }}:</label>
+                                <input type="text" name="score_{{ diver }}_{{ round_num }}_{{ score_index }}" value="{{ round_info[1][score_index] }}">
+                            </div>
+                        {% endfor %}
+                        <div>
+                            Score: {{ round_info[2] }}
+                        </div>
+                        <div>
+                            Total: {{ round_info[3] }}
+                        </div>
+                    </div>
+                {% endfor %}
+            {% endfor %}
+            <a class="button" href="/submit_scores">Back</a>
+            <button class="button" href="/validate" >Update Scores</button>
+            <a class="button" href="/rankings" >Create Rankings</a>
+        </form>
+    </div>
+</body>
+</html>

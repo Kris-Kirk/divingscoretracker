@@ -1,0 +1,16 @@
+Event Date: 2024-07-27, Event Number: John
+Diver: Mark
+Diver: John
+Diver: Igor
+Diver: Mark, DD: 4.0, Scores: [4.0, 4.0, 4.0], Total: 48.0
+Diver: John, DD: 5.0, Scores: [5.0, 5.0, 5.0], Total: 75.0
+Diver: Igor, DD: 6.0, Scores: [6.0, 6.0, 6.0], Total: 108.0
+Round: 2
+Diver: Mark, DD: 7.0, Scores: [7.0, 7.0, 7.0], Total: 147.0
+Diver: John, DD: 7.0, Scores: [7.0, 7.0, 7.0], Total: 147.0
+Diver: Igor, DD: 7.0, Scores: [7.0, 7.0, 7.0], Total: 147.0
+Round: 3
+Diver: Mark, DD: 7.0, Scores: [7.0, 7.0, 7.0], Total: 147.0
+Diver: John, DD: 7.0, Scores: [7.0, 7.0, 7.0], Total: 147.0
+Diver: Igor, DD: 2.0, Scores: [4.0, 5.0, 6.0], Total: 30.0
+Round: 4

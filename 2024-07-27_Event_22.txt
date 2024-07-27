@@ -1,0 +1,10 @@
+Event Date: 2024-07-27, Event Number: 22
+Diver: Kris
+Diver: Kris, DD: 1.0, Scores: [1.0, 1.0, 1.0], Total: 3.0
+Round: 2
+Diver: Kris, DD: 2.0, Scores: [2.0, 2.0, 2.0], Total: 12.0
+Round: 3
+Diver: Kris, DD: 1.0, Scores: [1.0, 1.0, 1.0], Total: 3.0
+Round: 4
+Diver: Kris, DD: 2.0, Scores: [2.0, 2.0, 2.0], Total: 12.0
+Round: 5
