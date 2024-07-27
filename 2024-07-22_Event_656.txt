@@ -1,0 +1,8 @@
+Event Date: 2024-07-22, Event Number: 656
+Diver: One
+Diver: Two
+Diver: Three
+Diver: One, DD: 4.0, Scores: [4.0, 4.0, 4.0], Total: 48.0
+Diver: Two, DD: 4.0, Scores: [4.0, 4.0, 4.0], Total: 48.0
+Diver: Three, DD: 5.0, Scores: [5.0, 5.0, 5.0], Total: 75.0
+Round: 2

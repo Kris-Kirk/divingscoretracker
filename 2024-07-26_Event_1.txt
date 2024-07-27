@@ -1,0 +1,41 @@
+Event Date: 2024-07-26, Event Number: 1
+Diver: John
+Diver: Mark
+Diver: John, DD: 1.8, Scores: [5.0, 5.0, 5.0], Total: 27.0
+Diver: Mark, DD: 5.0, Scores: [5.0, 5.0, 5.0], Total: 75.0
+Round: 2
+Diver: John, DD: 5.0, Scores: [5.0, 5.0, 5.0], Total: 75.0
+Diver: Mark, DD: 5.0, Scores: [5.0, 5.0, 5.0], Total: 75.0
+Round: 3
+Event Date: 2024-07-26, Event Number: 1
+Diver: Taya
+Event Date: 2024-07-26, Event Number: 1
+Diver: Felicity
+Diver: Lexi
+Diver: Navaeh
+Diver: Noor
+Diver: Felicity, DD: 1.0, Scores: [6.5, 6.5, 6.5], Total: 19.5
+Diver: Lexi, DD: 1.0, Scores: [5.5, 6.0, 6.0], Total: 17.5
+Diver: Navaeh, DD: 1.0, Scores: [6.0, 6.5, 6.5], Total: 19.0
+Diver: Noor, DD: 1.0, Scores: [5.0, 5.0, 5.0], Total: 15.0
+Round: 2
+Diver: Felicity, DD: 1.0, Scores: [6.0, 5.5, 6.0], Total: 17.5
+Diver: Lexi, DD: 1.0, Scores: [5.5, 6.0, 5.0], Total: 16.5
+Diver: Navaeh, DD: 1.0, Scores: [7.0, 5.5, 6.0], Total: 18.5
+Diver: Noor, DD: 6.0, Scores: [5.5, 6.0, 5.5], Total: 102.0
+Round: 3
+Diver: Felicity, DD: 1.1, Scores: [5.5, 5.5, 6.0], Total: 18.700000000000003
+Diver: Lexi, DD: 1.1, Scores: [6.5, 6.0, 6.0], Total: 20.35
+Diver: Navaeh, DD: 1.1, Scores: [7.0, 7.0, 7.5], Total: 23.650000000000002
+Diver: Noor, DD: 1.1, Scores: [5.0, 4.5, 5.5], Total: 16.5
+Round: 4
+Diver: Felicity, DD: 1.0, Scores: [6.5, 6.5, 6.5], Total: 19.5
+Diver: Lexi, DD: 1.1, Scores: [6.5, 6.5, 6.5], Total: 21.450000000000003
+Diver: Navaeh, DD: 1.1, Scores: [6.0, 7.0, 7.5], Total: 22.55
+Diver: Noor, DD: 1.0, Scores: [6.5, 6.0, 6.5], Total: 19.0
+Round: 5
+Diver: Felicity, DD: 1.1, Scores: [5.0, 5.0, 6.0], Total: 17.6
+Diver: Lexi, DD: 1.0, Scores: [6.6, 6.0, 6.5], Total: 19.1
+Diver: Navaeh, DD: 1.0, Scores: [3.0, 3.5, 4.0], Total: 10.5
+Diver: Noor, DD: 1.2, Scores: [3.0, 3.0, 3.0], Total: 10.799999999999999
+Round: 6

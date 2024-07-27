@@ -1,0 +1,9 @@
+Event Date: 2024-07-27, Event Number: 3
+Diver: jane
+Diver: taya
+Diver: taya, DD: 1.0, Scores: [7.0, 7.0, 7.0], Total: 21.0
+Diver: taya, DD: 1.0, Scores: [7.0, 6.5, 7.0], Total: 20.5
+Round: 2
+Diver: jane, DD: 1.2, Scores: [5.5, 6.6, 6.0], Total: 21.720000000000002
+Diver: taya, DD: 1.0, Scores: [6.5, 6.0, 6.5], Total: 19.0
+Round: 3

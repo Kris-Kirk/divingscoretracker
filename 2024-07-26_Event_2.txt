@@ -1,0 +1,9 @@
+Event Date: 2024-07-26, Event Number: 2
+Diver: Shannon
+Diver: Kris
+Diver: Shannon, DD: 5.0, Scores: [5.0, 5.0, 5.0], Total: 75.0
+Diver: Kris, DD: 5.0, Scores: [5.0, 5.0, 5.0], Total: 75.0
+Round: 2
+Diver: Shannon, DD: 1.0, Scores: [3.0, 3.0, 3.0], Total: 9.0
+Diver: Kris, DD: 5.0, Scores: [6.0, 6.0, 6.0], Total: 90.0
+Round: 3

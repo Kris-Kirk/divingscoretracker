@@ -8,10 +8,10 @@
     <div class="container">
         <h1>Diver Rankings</h1>
         <ol>
-            {% for diver, score in sorted_divers %}
-            <li>{{loop.index}}. {{diver }}: {{ "%.2f"|format(score) }}</li>
+            {% for place, diver, score in ranked_divers %}
+            <li>{{ place }}. {{ diver }}: {{ "%.2f"|format(score) }}</li>
             {% endfor %}
-        </ol>
+        </ol>        
         <a class="button" href="/submit_scores">Back</a>
         <a class="button" href="/clear">Clear</a>
         <a class="button" href="/download_log_file">Download Score Summary</a>

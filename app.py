@@ -96,7 +96,31 @@ def submit_scores():
     if request.method == 'POST':
         diver = request.form['diver']
         dd = float(request.form['dd'])
-        judge_scores = [float(request.form[f'judge{i+1}']) for i in range(num_judges)]
+        judge_scores = [0] * num_judges
+        
+        for i in range(num_judges):
+            score = request.form[f'judge{i+1}']
+            if score == '1-' or score == '1+':
+                score = 1.5
+            elif score == '2-' or score == '2+':
+                score = 2.5
+            elif score == '3-' or score == '3+':
+                score = 3.5
+            elif score == '4-' or score == '4+':
+                score = 4.5
+            elif score == '5-' or score == '5+':
+                score = 5.5
+            elif score == '6-' or score == '6+':
+                score = 6.5
+            elif score == '7-' or score == '7+':
+                score = 7.5
+            elif score == '8-' or score == '8+':
+                score = 8.5
+            elif score == '9-' or score == '9+':
+                score = 9.5
+            else:
+                score = float(score)
+            judge_scores[i] = score
         
         history.append((diver, scores.get(diver, 0)))
         redo_history.clear()
@@ -124,12 +148,25 @@ def submit_scores():
         
         return redirect(url_for('submit_scores'))
     
-    return render_template('submit_scores.html', divers=divers, num_judges=num_judges, scores=scores, current_diver_index=current_diver_index, current_round=current_round)
+    return render_template('submit_scores.html', divers=divers, num_judges=num_judges, scores=scores, current_diver_index=current_diver_index, current_round=current_round, diver_information=diver_information)
 
 @app.route('/rankings')
 def rankings():
     sorted_divers = sorted(scores.items(), key=lambda x: x[1], reverse=True)
-    return render_template('rankings.html', sorted_divers=sorted_divers)
+    
+    current_score = None
+    current_place = 0
+    next_place = 1
+
+    ranked_divers = []
+
+    for i, (diver, score) in enumerate(sorted_divers):
+        if score != current_score:
+            current_score = score
+            current_place = next_place
+        ranked_divers.append((current_place, diver, score))
+        next_place += 1
+    return render_template('rankings.html', ranked_divers=ranked_divers)
 
 @app.route('/undo')
 def undo():
@@ -164,7 +201,7 @@ def clear():
     scores = {}
     history = []
     redo_history = []
-    diver_information.clear()
+    diver_information = {}
     current_diver_index = 0
     current_round = 1
     last_selected_diver = None
@@ -173,12 +210,13 @@ def clear():
 
 @app.route('/download_log_file')
 def download_log_file():
+    diver_information_copy = {}
     round = 1
     event_number = session.get('event_number')
     pdf_filename = f"Event Date: {session.get('date')}, Event Number_{event_number}_Athlete_Scores.pdf"
     txt_filename = f"Event Date: {session.get('date')}, Event Number_{event_number}_Athlete_Scores.txt"
     diver_information_copy = diver_information.copy()
-    
+    print("Diver information copy: ", diver_information_copy)
     for diver, info in diver_information.items():
         try:
             data = info[-1][-1]
@@ -189,17 +227,28 @@ def download_log_file():
         f.write(f"{session.get('date')} Dive Meet, Event Number: {session.get('event_number')}\n")
         for diver, info in diver_information_copy.items():
             f.write(f"{diver}, Total: {info[-1][-1]:.2f}\n")
-            
+            round = 1
             for dd, scores, total, cum_total in info:
                 f.write(f"#{round}, DD: {dd}, Scores: {scores}, Score: {total:.2f}, Total: {cum_total:.2f}\n")
                 round += 1  
         f.write("\nPlacings:\n")
         # Sort divers by total score and write to file
         sorted_divers = sorted(diver_information_copy.items(), key=lambda x: x[1][-1][-1], reverse=True)
-            
-        for i, (diver, info) in enumerate(sorted_divers):
-            f.write(f"{i+1}. {diver}, Total: {info[-1][-1]:.2f}\n")
         
+        current_score = None
+        current_place = 0
+        next_place = 1
+
+        for i, (diver, info) in enumerate(sorted_divers):
+            # Displays properly ties for first place
+            if current_score == None:
+                current_score = info[-1][-1]
+            # Records ties for second place and beyond
+            if info[-1][-1] != current_score:
+                current_score = info[-1][-1]
+                current_place = next_place
+            f.write(f"{current_place}. {diver}, Total: {info[-1][-1]:.3f}\n")
+            next_place += 1        
             
     with open(txt_filename, 'r') as f:
         data = f.read()
@@ -207,10 +256,15 @@ def download_log_file():
     c = canvas.Canvas(pdf_filename, pagesize=letter)
     lines = data.splitlines()
     y_position = 750
+    line_height = 20
+    page_bottom_margin = 50
     
     for line in lines:
+        if y_position <= page_bottom_margin:
+            c.showPage()
+            y_position = 750
         c.drawString(100, y_position, line)
-        y_position -= 20
+        y_position -= line_height
     c.save()
     return send_file(pdf_filename, as_attachment=True)
     

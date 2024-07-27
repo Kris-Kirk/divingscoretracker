@@ -1,0 +1,10 @@
+Event Date: 2024-07-22, Event Number: 89
+Diver: Me
+Diver: You
+Diver: Her
+Diver: Him
+Diver: Me, DD: 4.0, Scores: [4.0, 4.0, 4.0], Total: 48.0
+Diver: You, DD: 4.0, Scores: [4.0, 4.0, 4.0], Total: 48.0
+Diver: Her, DD: 5.0, Scores: [5.0, 5.0, 5.0], Total: 75.0
+Diver: Him, DD: 2.0, Scores: [2.0, 2.0, 2.0], Total: 12.0
+Round: 2

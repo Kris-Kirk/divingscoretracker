@@ -1,0 +1,45 @@
+Event Date: 2024-07-27, Event Number: 2
+Diver: Tara
+Diver: Tara, DD: 5.0, Scores: [5.0, 5.0, 5.0], Total: 75.0
+Round: 2
+Event Date: 2024-07-27, Event Number: 2
+Diver: Alma
+Diver: Tara
+Diver: Emilia
+Diver: Blythe
+Diver: Lily
+Diver: Avani
+Diver: Bryndis
+Diver: Isla
+Diver: Stella
+Diver: Alma, DD: 1.0, Scores: [5.0, 4.5, 5.0], Total: 14.5
+Diver: Tara, DD: 1.0, Scores: [4.0, 4.5, 4.0], Total: 12.5
+Diver: Emilia, DD: 1.0, Scores: [5.0, 5.0, 5.0], Total: 15.0
+Diver: Blythe, DD: 1.0, Scores: [8.0, 8.0, 8.0], Total: 24.0
+Diver: Lily, DD: 1.0, Scores: [8.5, 8.5, 8.0], Total: 25.0
+Diver: Avani, DD: 1.0, Scores: [5.0, 5.5, 6.0], Total: 16.5
+Diver: Bryndis, DD: 1.0, Scores: [7.0, 7.5, 7.5], Total: 22.0
+Diver: Isla, DD: 1.0, Scores: [6.0, 6.5, 6.0], Total: 18.5
+Diver: Stella, DD: 1.0, Scores: [6.0, 6.0, 6.0], Total: 18.0
+Round: 2
+Diver: Stella, DD: 1.0, Scores: [6.0, 5.5, 6.0], Total: 17.5
+Round: 2
+Diver: Alma, DD: 1.0, Scores: [5.5, 5.5, 6.0], Total: 17.0
+Diver: Tara, DD: 1.0, Scores: [4.5, 4.5, 4.5], Total: 13.5
+Diver: Emilia, DD: 1.1, Scores: [5.0, 5.0, 5.0], Total: 16.5
+Diver: Blythe, DD: 1.0, Scores: [7.5, 7.5, 7.5], Total: 22.5
+Diver: Lily, DD: 1.3, Scores: [6.5, 6.5, 6.5], Total: 25.35
+Diver: Avani, DD: 1.0, Scores: [6.0, 6.0, 6.0], Total: 18.0
+Diver: Bryndis, DD: 1.0, Scores: [4.5, 4.5, 4.0], Total: 13.0
+Diver: Blythe, DD: 1.2, Scores: [6.0, 6.0, 6.0], Total: 21.599999999999998
+Diver: Lily, DD: 1.1, Scores: [6.5, 6.5, 6.5], Total: 21.450000000000003
+Diver: Blythe, DD: 1.3, Scores: [5.5, 5.5, 5.5], Total: 21.45
+Round: 3
+Diver: Lily, DD: 1.4, Scores: [6.0, 6.5, 6.5], Total: 26.599999999999998
+Diver: Blythe, DD: 1.1, Scores: [7.5, 8.0, 7.5], Total: 25.3
+Diver: Lily, DD: 1.1, Scores: [7.5, 7.5, 7.5], Total: 24.750000000000004
+Diver: Blythe, DD: 1.4, Scores: [7.0, 7.5, 7.5], Total: 30.799999999999997
+Diver: Lily, DD: 1.0, Scores: [7.5, 7.5, 7.5], Total: 22.5
+Event Date: 2024-07-27, Event Number: 2
+Diver: Kris
+Diver: Logan

@@ -1,0 +1,5 @@
+Event Date: 2024-07-27, Event Number: 6
+Diver: Logan
+Diver: Josh
+Diver: kris
+Diver: Logan, DD: 1.4, Scores: [4.0, 5.5, 5.5], Total: 21.0
