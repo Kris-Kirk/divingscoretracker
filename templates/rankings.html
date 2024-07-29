@@ -7,11 +7,15 @@
 <body>
     <div class="container">
         <h1>Diver Rankings</h1>
+        {% for category in sorted_diver_categories %}
+            <li>{{ category }}</li>
         <ol>
-            {% for place, diver, score in ranked_divers %}
+            {% for place, diver, score in sorted_diver_categories[category] %}
             <li>{{ place }}. {{ diver }}: {{ "%.2f"|format(score) }}</li>
             {% endfor %}
-        </ol>        
+            
+        </ol>  
+        {% endfor %}     
         <a class="button" href="/validate">Back</a>
         <a class="button" href="/clear">Clear</a>
         <a class="button" href="/download_log_file">Download Score Summary</a>

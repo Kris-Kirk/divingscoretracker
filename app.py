@@ -16,6 +16,8 @@ current_diver_index = 0
 current_round = 1
 last_selected_diver = None
 global diver_information
+diver_categories = {}
+diver_category_pairs = {}
 
 diver_information = {}
 
@@ -49,12 +51,18 @@ def setup():
 
 @app.route('/divers', methods=['GET', 'POST'])
 def divers_route():
-    global divers, file_name
+    global divers, file_name, diver_categories, diver_category_pairs
     if request.method == 'POST':
         diver_name = request.form['diver_name']
-        diver_category = request.form['diver_category']
-        event_date = session.get('date')
-        event_number = session.get('event_number')
+        diver_category = request.form['category']
+        
+        if diver_category:
+            diver_category_pairs[diver_name] = diver_category
+            
+            if diver_categories.get(diver_category):
+                diver_categories[diver_category].append(diver_name)
+            else:
+                diver_categories[diver_category] = [diver_name]
         
         if diver_name:
             divers.append(diver_name)
@@ -62,7 +70,7 @@ def divers_route():
             with open(file_name, 'a') as f:
                 f.write(f"Diver: {diver_name}\n")
         return redirect(url_for('divers_route'))
-    return render_template('divers.html', divers=divers)
+    return render_template('divers.html', divers=divers, diver_category_pairs=diver_category_pairs)
 
 @app.route('/remove_diver/<diver>')
 def remove_diver(diver):
@@ -155,20 +163,33 @@ def submit_scores():
 @app.route('/rankings')
 def rankings():
     sorted_divers = sorted(scores.items(), key=lambda x: x[1], reverse=True)
+    sorted_diver_categories = {}
     
-    current_score = None
-    current_place = 0
-    next_place = 1
+    for category in diver_categories:
+        diver_names = diver_categories[category]
+        print("Diver names: ", diver_names)
+        if len(diver_names) > 0:
+            current_score = None
+            current_place = 0
+            next_place = 1
 
-    ranked_divers = []
+            ranked_divers = []
 
-    for i, (diver, score) in enumerate(sorted_divers):
-        if score != current_score:
-            current_score = score
-            current_place = next_place
-        ranked_divers.append((current_place, diver, score))
-        next_place += 1
-    return render_template('rankings.html', ranked_divers=ranked_divers)
+            for i, (diver, score) in enumerate(sorted_divers):
+                if diver in diver_names:
+                    if current_score == None:
+                        current_score = score
+                        current_place = next_place
+                    if score != current_score:
+                        current_score = score
+                        current_place = next_place
+                    ranked_divers.append((current_place, diver, score))
+                    next_place += 1
+            sorted_diver_categories[category] = ranked_divers
+                
+    print("Sorted diver categories: ", sorted_diver_categories)
+    
+    return render_template('rankings.html', sorted_diver_categories=sorted_diver_categories)
 
 @app.route('/undo')
 def undo():
@@ -228,30 +249,35 @@ def download_log_file():
     with open(txt_filename, 'w') as f:
         f.write(f"{session.get('date')} Dive Meet, Event Number: {session.get('event_number')}\n")
         for diver, info in diver_information_copy.items():
-            f.write(f"{diver}, Total: {info[-1][-1]:.2f}\n")
+            f.write(f"{diver} ({diver_category_pairs[diver]}), Total: {info[-1][-1]:.2f}\n")
             round = 1
             for dd, scores, total, cum_total in info:
                 f.write(f"#{round}, DD: {dd}, Scores: {scores}, Score: {total:.2f}, Total: {cum_total:.2f}\n")
                 round += 1  
-        f.write("\nPlacings:\n")
+        f.write("\nPlacings:")
         # Sort divers by total score and write to file
         sorted_divers = sorted(diver_information_copy.items(), key=lambda x: x[1][-1][-1], reverse=True)
         
-        current_score = None
-        current_place = 0
-        next_place = 1
-
-        for i, (diver, info) in enumerate(sorted_divers):
-            # Displays properly ties for first place
-            if current_score == None:
-                current_score = info[-1][-1]
-                current_place = next_place
-            # Records ties for second place and beyond
-            if info[-1][-1] != current_score:
-                current_score = info[-1][-1]
-                current_place = next_place
-            f.write(f"{current_place}. {diver}, Total: {info[-1][-1]:.3f}\n")
-            next_place += 1        
+        for category in diver_categories:
+            diver_names = diver_categories[category]
+            if len(diver_names) > 0:
+                current_score = None
+                current_place = 0
+                next_place = 1
+                f.write(f"\n{category}\n")
+                
+                for i, (diver, info) in enumerate(sorted_divers):
+                    if diver in diver_names:
+                        # Displays properly ties for first place
+                        if current_score == None:
+                            current_score = info[-1][-1]
+                            current_place = next_place
+                        # Records ties for second place and beyond
+                        if info[-1][-1] != current_score:
+                            current_score = info[-1][-1]
+                            current_place = next_place
+                        f.write(f"{current_place}. {diver}, Total: {info[-1][-1]:.3f}\n")
+                        next_place += 1        
             
     with open(txt_filename, 'r') as f:
         data = f.read()

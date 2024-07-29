@@ -1,0 +1,31 @@
+Event Date: 2024-07-29, Event Number: 4
+Diver: Lexi
+Diver: Taya
+Diver: Mark
+Diver: Lexi, DD: 5.0, Scores: [4.0, 4.0, 4.0], Total: 60.0
+Diver: Taya, DD: 5.0, Scores: [5.0, 5.0, 55.0], Total: 325.0
+Diver: Mark, DD: 4.0, Scores: [4.0, 4.0, 4.0], Total: 48.0
+Round: 2
+Diver: Lexi, DD: 5.0, Scores: [5.0, 5.0, 5.0], Total: 75.0
+Diver: Taya, DD: 7.0, Scores: [7.0, 7.0, 7.0], Total: 147.0
+Event Date: 2024-07-29, Event Number: 4
+Diver: James
+Diver: Kyle
+Diver: Mark
+Diver: Quinn
+Diver: Lexi
+Diver: Marlow
+Diver: James, DD: 2.0, Scores: [3.0, 4.0, 5.0], Total: 24.0
+Diver: Kyle, DD: 4.0, Scores: [5.0, 6.0, 5.0], Total: 64.0
+Diver: Mark, DD: 3.0, Scores: [3.0, 3.0, 34.0], Total: 120.0
+Diver: Quinn, DD: 5.0, Scores: [5.0, 5.0, 5.0], Total: 75.0
+Diver: Lexi, DD: 3.0, Scores: [3.0, 3.0, 3.0], Total: 27.0
+Diver: Marlow, DD: 6.0, Scores: [6.0, 6.0, 6.0], Total: 108.0
+Round: 2
+Diver: James, DD: 3.0, Scores: [3.0, 3.0, 3.0], Total: 27.0
+Diver: Kyle, DD: 2.0, Scores: [2.0, 2.0, 2.0], Total: 12.0
+Diver: Mark, DD: 2.0, Scores: [2.0, 2.0, 2.0], Total: 12.0
+Diver: Quinn, DD: 2.0, Scores: [2.0, 2.0, 2.0], Total: 12.0
+Diver: Lexi, DD: 2.0, Scores: [2.0, 2.0, 2.0], Total: 12.0
+Diver: Marlow, DD: 2.0, Scores: [2.0, 2.0, 2.0], Total: 12.0
+Round: 3

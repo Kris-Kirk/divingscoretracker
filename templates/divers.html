@@ -12,23 +12,24 @@
             <input type="text" id="diver_name" name="diver_name" required>
             <label for="category">Category:</label>
             <select id="category" name="category">
-                <option value="1">8U Girls</option>
-                <option value="2">8U Boys</option>
-                <option value="3">9/10 Girls</option>
-                <option value="4">9/10 Boys</option>
-                <option value="5">11/12 Girls</option>
-                <option value="6">11/12 Boys</option>
-                <option value="7">13/14 Girls</option>
-                <option value="8">13/14 Boys</option>
-                <option value="9">15+ Girls</option>
-                <option value="10">15+ Boys</option>
+                <option value="8U Girls">8U Girls</option>
+                <option value="8U Boys">8U Boys</option>
+                <option value="9/10 Girls">9/10 Girls</option>
+                <option value="9/10 Boys">9/10 Boys</option>
+                <option value="11/12 Girls">11/12 Girls</option>
+                <option value="11/12 Boys">11/12 Boys</option>
+                <option value="13/14 Girls">13/14 Girls</option>
+                <option value="13/14 Boys">13/14 Boys</option>
+                <option value="15+ Girls">15+ Girls</option>
+                <option value="15+ Boys">15+ Boys</option>
             </select>
             <input type="submit" value="Add Diver">
         </form>
         <h2>Participants:</h2>
         <ul>
             {% for diver in divers %}
-            <li>{{ diver }}
+            
+            <li>{{ diver }} ({{diver_category_pairs[diver]}})
                 <a href="{{ url_for('remove_diver', diver=diver|urlencode) }}" class="button remove-button">Remove</a>
             </li>
             {% endfor %}

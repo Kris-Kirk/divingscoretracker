@@ -1,0 +1,16 @@
+Event Date: 2024-07-29, Event Number: 5
+Diver: Kris
+Diver: Mark
+Event Date: 2024-07-29, Event Number: 5
+Diver: Lolo
+Diver: Mark
+Diver: James
+Diver: Lolo, DD: 4.0, Scores: [4.0, 4.0, 4.0], Total: 48.0
+Diver: Mark, DD: 5.0, Scores: [5.0, 5.0, 5.0], Total: 75.0
+Diver: James, DD: 66.0, Scores: [6.0, 6.0, 6.0], Total: 1188.0
+Round: 2
+Diver: Lolo, DD: 7.0, Scores: [7.0, 7.0, 7.0], Total: 147.0
+Event Date: 2024-07-29, Event Number: 5
+Diver: Blah
+Diver: Blah, DD: 1.0, Scores: [1.0, 1.0, 1.0], Total: 3.0
+Round: 2

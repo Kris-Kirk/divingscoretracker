@@ -1,0 +1,31 @@
+Event Date: 2024-07-29, Event Number: 3
+Diver: Kris
+Diver: Logan
+Diver: Mark
+Diver: James
+Diver: Sam
+Diver: Kris, DD: 1.0, Scores: [1.0, 1.0, 1.0], Total: 3.0
+Diver: Logan, DD: 2.0, Scores: [2.0, 2.0, 2.0], Total: 12.0
+Diver: Mark, DD: 2.0, Scores: [2.0, 2.0, 2.0], Total: 12.0
+Diver: James, DD: 3.0, Scores: [3.0, 3.0, 3.0], Total: 27.0
+Diver: Sam, DD: 21.0, Scores: [2.0, 2.0, 2.0], Total: 126.0
+Round: 2
+Diver: Kris, DD: 1.0, Scores: [1.0, 1.0, 1.0], Total: 3.0
+Diver: Logan, DD: 2.0, Scores: [2.0, 2.0, 2.0], Total: 12.0
+Diver: Mark, DD: 3.0, Scores: [3.0, 3.0, 3.0], Total: 27.0
+Diver: James, DD: 4.0, Scores: [4.0, 4.0, 4.0], Total: 48.0
+Diver: Sam, DD: 6.0, Scores: [5.0, 5.0, 5.0], Total: 90.0
+Round: 3
+Event Date: 2024-07-29, Event Number: 3
+Diver: Kris
+Diver: Logan
+Diver: Mark 
+Diver: Logan, DD: 1.0, Scores: [2.0, 2.0, 2.0], Total: 6.0
+Diver: Mark , DD: 3.0, Scores: [3.0, 3.0, 3.0], Total: 27.0
+Round: 2
+Diver: Logan, DD: 4.0, Scores: [4.0, 4.0, 4.0], Total: 48.0
+Diver: Mark , DD: 3.0, Scores: [3.0, 3.0, 3.0], Total: 27.0
+Round: 3
+Diver: Logan, DD: 2.0, Scores: [3.0, 2.0, 2.0], Total: 14.0
+Diver: Mark , DD: 4.0, Scores: [6.0, 5.0, 4.0], Total: 60.0
+Round: 4
