@@ -76,10 +76,10 @@
                             </div>
                         {% endfor %}
                         <div>
-                            Score: {{ round_info[2] }}
+                            Score: {{ "%.2f"|format(round_info[2]) }}
                         </div>
                         <div>
-                            Total: {{ round_info[3] }}
+                            Total: {{ "%.2f"|format(round_info[3]) }}
                         </div>
                     </div>
                 {% endfor %}

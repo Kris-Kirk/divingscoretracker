@@ -52,6 +52,7 @@ def divers_route():
     global divers, file_name
     if request.method == 'POST':
         diver_name = request.form['diver_name']
+        diver_category = request.form['diver_category']
         event_date = session.get('date')
         event_number = session.get('event_number')
         
